@@ -1,33 +1,16 @@
 package testcases;
 
-import java.util.concurrent.TimeUnit;
-
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TC__ClassFile2 
+import base.TestBase;
+
+public class TC__ClassFile2 extends TestBase
 {
-	WebDriver driver;
-	String base_url = "https://amazon.in/";
-	int implicit_wait_timeout_in_sec = 20;
-
-	@Before
-	public void setup()
-	{
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(implicit_wait_timeout_in_sec, TimeUnit.SECONDS);
-	}
-
 	@Test
 	public void TC_2_Searching_for_the_product()
 	{
@@ -51,13 +34,6 @@ public class TC__ClassFile2
 
 		//Assertion
 		Assert.assertEquals("Amazon.in : Laptop", ActualPageTitle);
-	}
-
-	@After
-	public void Clean_UP() throws InterruptedException
-	{
-		Thread.sleep(5000);	
-		driver.quit();
 	}
 
 
